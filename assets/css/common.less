@@ -1,0 +1,541 @@
+@import url('./style.less');
+@url:'../image/';
+body{
+	color:@cl-3;
+}
+body,html{
+	
+	width: 100%;
+	overflow-x:hidden;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling:touch;
+	// overflow: hidden;
+}
+body,html,.w-center{
+	height: 100%;
+}
+.w-center{
+	position: relative;
+	/* max-width: 640px;
+	margin:0 auto; */
+	// overflow: hidden;
+}
+.w-section{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+	overflow: scroll;
+	-webkit-overflow-scrolling:touch;
+	.transition(left,.4s);
+	&.remove-curr{
+		left:-100%;
+	}
+}
+.w-aside{
+	position: absolute;
+	left: 100%;
+	top: 0;
+	z-index: 1101;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	// overflow-x:hidden;
+	// overflow-y:scroll;
+	// -webkit-overflow-scrolling:touch;
+	.bgcol(#fff);
+	.transition(left,.4s);
+	&.curr{
+		left:0;
+	}
+	.w-aside-lists{
+		height: 100%;
+		.padt(1.2rem);
+		overflow-x:hidden;
+		overflow-y:scroll;
+		-webkit-overflow-scrolling:touch;
+		li{
+			.lhei(1.2rem);
+			.fsize(.36rem);
+			font-weight: bold;
+			&>a{
+				display: block;
+				.pad(.4rem);
+				.col(@cl-3);
+				text-decoration: none;
+				&.curr{
+					.col(@cl-78);
+				}
+			}
+			&.aside-more{
+				position: relative;
+				.aside-nav-t{
+					position: relative;
+					.pad(.4rem);
+					&>i{
+						position: absolute;
+						right: 0;
+						top: 0;
+						width: 1.2rem;
+						height: 1.2rem;
+						background: url('../image/icon-jiantou-fenlei-r.png') no-repeat center;
+						background-size: .32rem .32rem;
+					}
+					&.curr{
+						.col(@cl-f);
+						.bgcol(@cl-77);
+						&>i{
+							background: url('../image/icon-jiantou-fenlei-d.png') no-repeat center;
+							background-size: .32rem .32rem;
+						}
+					}
+					&.curr1{
+						&>i{
+							background: url('../image/icon-jiantou-felei-rw.png') no-repeat center;
+							background-size: .32rem .32rem;
+						}
+					}
+				}
+				.aside-nav-more{
+					.pad(0,.18rem);
+					.bgcol(@cl-f7);
+					display: none;
+					&>a{
+						display: block;
+						height: .9rem;
+						.pad(.4rem);
+						.lhei(.9rem);
+						.col(@cl-6);
+						text-decoration: none;
+						font-weight: normal;
+						&.curr{
+							.col(@cl-78);
+						}
+					}
+				}
+			}
+		}
+		// .aside-search{
+		// 	position: relative;
+		// 	.pad(.4rem);
+		// 	height: 1.2rem;
+		// 	.padb(.4rem);
+		// 	margin-top: .2rem;
+		// 	&>form{
+		// 		position: relative;
+		// 	}
+		// 	.a-search-inp{
+		// 		display:block;
+		// 		width: 100%;
+		// 		height: .8rem;
+		// 		border:1px solid #212121;
+		// 		.radius(1px);
+		// 		.lhei(.5rem);
+		// 		.fsize(.3rem);
+		// 		.pad(.3rem,.24rem);
+		// 		.padr(.9rem);
+		// 		-webkit-box-sizing:border-box;
+		// 		-moz-box-sizing:border-box;
+		// 		-ms-box-sizing:border-box;
+		// 		-o-box-sizing:border-box;
+		// 		box-sizing:border-box;
+		// 	}
+		// 	.w-search-icon{
+		// 		position: absolute;
+		// 		right: 0;
+		// 		top: 0;
+		// 		width: .8rem;
+		// 		height: .8rem;
+		// 		background: url('../image/shousuo.png') no-repeat center;
+		// 		background-size: .32rem;
+		// 	}
+		// }
+	}
+}
+/* 公共导航、banner */
+.w-banner{
+	position: relative;
+	width: 100%;
+	height: 2.34rem;
+	&>.w-fill-img{
+		.wid();
+		.hei();
+	}
+	.w-btxt{
+		position: absolute;
+		left: 0;
+		top: 50%;
+		width: 100%;
+		text-align: center;
+		.pad(.8rem);
+		.lhei(.50rem);
+		.col(@cl-f);
+		.fsize(.36rem);
+		.transY();
+	}
+}
+.w-bplace{
+	height: 1.2rem;
+}
+// nav
+.page-section{
+	position: relative;
+	.w-nav{
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 1088;
+		.wid();
+		.hei(1rem);
+		.bgcol(@cl-f);
+		.w-nav-t{
+			position: relative;
+			.hei(1rem);
+			.lhei(1rem);
+			.pad(.3rem);
+			.fsize(.32rem);
+			&>i{
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 1rem;
+				height: 1rem;
+				background: url('@{url}icon-jiantou-daohang-d.png') no-repeat center;
+				background-size: .32rem;
+			}
+			&.curr{
+				&>i{
+					background: url('@{url}icon-jiantou-daohang-u.png') no-repeat center;
+					background-size: .32rem;
+				}
+			}
+		}
+		.w-nav-lis{
+			position: absolute;
+			left: 0;
+			top: 1rem;
+			z-index: 1;
+			max-height: 7.2rem;
+			.wid();
+			.bgcol(@cl-f);
+			overflow-y:scroll;
+			-webkit-overflow-scrolling:touch;
+			display: none;
+		}
+		.w-nav-li{
+			.hei(.9rem);
+			.lhei(.9rem);
+			.pad(.3rem);
+			text-align: center;
+			&>a{
+				display: block;
+				.col(@cl-3);
+				.bor-1px-b(#ededed);
+				text-decoration: none;
+				&.curr{
+					font-weight: bold;
+					.col(@cl-78);
+					&:after{
+						border-bottom:2px solid @cl-77;
+					}
+				}
+			}
+			&:last-child{
+				.bor-1px-b(#ededed);
+				&>a{
+					&:after{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	.w-nav-place{
+		.hei(1rem);
+	}
+}
+/* 公共头部 */
+.w-header{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 1099;
+	height: 1.2rem;
+	.pad(.4rem);
+	&.w-header1{
+		position: fixed;
+		.transition(left,.4s);
+		&.remove-curr{
+			left:-100%;
+		}
+	}
+	&.w-header2{
+		position: fixed;
+		left: 0;
+		display: none;
+		.bgcol(@cl-f);
+		.transition(left,.4s);
+		&.remove-curr{
+			left:-100%;
+		}
+		&.w-header-block{
+			display: block;
+		}
+	}
+	&.w-header3{
+		position: fixed;
+		left: 100%;
+		.bgcol(@cl-f);
+		.transition(left,.4s);
+		&.curr{
+			left:0;
+		}
+	}
+	.w-logo{
+		width: 2.38rem;
+		margin-top: .28rem;
+		img{
+			display: block;
+			width: 100%;
+		}
+	}
+	.h-more-icon1{
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: .92rem;
+		height: 1.2rem;
+		background: url('../image/icon-fenlei2.png') no-repeat center;
+		background-size: .48rem .48rem;
+	}
+	.h-more-icon2{
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: .92rem;
+		height: 1.2rem;
+		background: url('../image/icon-fenlei1.png') no-repeat center;
+		background-size: .48rem .48rem;
+	}
+	.h-search-icon1{
+		position: absolute;
+		right: .92rem;
+		top: 0;
+		width: .92rem;
+		height: 1.2rem;
+		background: url('../image/icon-shousuo2.png') no-repeat center;
+		background-size: .48rem .48rem;
+	}
+	.h-search-icon2{
+		position: absolute;
+		right: .92rem;
+		top: 0;
+		width: .92rem;
+		height: 1.2rem;
+		background: url('../image/icon-shousuo1.png') no-repeat center;
+		background-size: .48rem .48rem;
+	}
+	.h-close-icon{
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 1.2rem;
+		height: 1.2rem;
+		background: url('../image/icon-shanchu64.png') no-repeat center;
+		background-size: .64rem .64rem;
+	}
+}
+/* 公共搜索 */
+.w-search-pop{
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 1100;
+	.wid();
+	.hei();
+	display: none;
+	.w-search-bg{
+		.wid();
+		.hei();
+		.bgcol(rgba(0,0,0,.3));
+	}
+	.w-search-box{
+		position: absolute;
+		left: 0;
+		top: 0;
+		.wid();
+		.hei(1.22rem);
+		z-index: 1100;
+		display: none;
+		.bgcol(@cl-f);
+		overflow: hidden;
+		&.curr{
+			display: -webkit-box;
+		    display: -webkit-flex;
+		    display: flex;
+		}
+		.search-inp{
+			&-outer{
+				.pad(0,.2rem);
+				.padl(.3rem);
+			}
+			&-inner{
+				width:calc(~'100% - 3px');
+				.bor-1px(@cl-3);
+				form{
+					.wid();
+					.hei();
+				}
+				input{
+					position: relative;
+					z-index: 10;
+					.wid();
+					.hei(.8rem);
+					.lhei(.32rem);
+					.pad(.2rem);
+					.padt(.28rem);
+					.padb(.2rem);
+					.fsize(.3rem);
+					.bgcol(transparent);
+				}
+
+				input[type="search"]::-webkit-input-placeholder{
+					.lhei(.32rem);
+				    color:#cccccc;
+				}
+				input[type="search"]:-moz-input-placeholder{
+					.lhei(.32rem);
+				    color:#cccccc;
+				}
+				input[type="search"]::-ms-input-placeholder{
+					.lhei(.32rem);
+				    color:#cccccc;
+				}
+				input[type="search"]:input-placeholder{
+					.lhei(.32rem);
+				    color:#cccccc;
+				}
+				&>i{
+					position: absolute;
+					right: 0;
+					top: 0;
+					z-index: 11;
+					.wid(.8rem);
+					.hei(.8rem);
+					background: url('../image/icon-shousuo1.png') no-repeat center;
+					background-size: .48rem;
+				}
+			}
+
+		}
+		.search-cancel{
+			.pad(.3rem);
+			.lhei(1.2rem);
+			.fsize(.32rem);
+			.col(@cl-6);
+		}
+	}
+}
+/* footer */
+#lis-footer{
+	display: none;
+}
+.w-footer{
+	.wid();
+	.hei(1.6rem);
+	.bgcol(#3a3a3a);
+	text-align: center;
+	.pad(.3rem);
+	.padt(.4rem);
+	.lhei(.40rem);
+	.w-foot-d{
+		.col(#a6a6a6);
+		.fsize(.24rem);
+	}
+}
+/* 覆盖层 */
+.w-wrap{
+	position: relative;
+	min-height: 92%;
+	.bgcol(@cl-f7);
+}
+.w-fixed{
+	position: fixed !important;
+	top:1.2rem !important;
+
+	.transition(left,.4s);
+	&.remove-curr{
+		left:-100% !important;
+	}
+}
+.w-fixed1{
+	position: fixed !important;
+	top:2.2rem !important;
+
+	.transition(left,.4s);
+	&.remove-curr{
+		left:-100% !important;
+	}
+}
+.w-fixed2{
+	position: fixed !important;
+	top:3.2rem !important;
+
+	.transition(left,.4s);
+	&.remove-curr{
+		left:-100% !important;
+	}
+}
+.w-bg{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1066;
+	.wid();
+	.hei();
+	.bgcol(rgba(0,0,0,.3));
+	display: none;
+}
+.w-bg1{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1010;
+	.wid();
+	.hei();
+	.bgcol(rgba(0,0,0,.3));
+	display: none;
+}
+.w-bg2{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1010;
+	.wid();
+	.hei();
+	.bgcol(rgba(0,0,0,.3));
+	display: none;
+}
+.w-show{
+	display: block !important;
+}
+.w-hide{
+	display: none !important;
+}
+.w-overflow-hidden{
+	overflow: hidden !important;
+}
+.w-go-top{
+	position: fixed;
+	right: .2rem;
+	bottom:.3rem;
+	z-index: 1000;
+	.wid(.88rem);
+	.hei(.88rem);
+	background: url('@{url}icon-zhiding88.png') no-repeat center;
+	background-size: cover;
+	display: none;
+}
