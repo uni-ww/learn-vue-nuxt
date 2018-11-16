@@ -35,7 +35,8 @@ module.exports = {
      ** Global CSS
      */
     css: [
-        '~/assets/css/common.less'
+        '~/assets/css/common.less',
+        '~/assets/css/swiper.min.css'
     ],
 
     /*

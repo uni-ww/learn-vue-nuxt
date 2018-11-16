@@ -240,87 +240,6 @@
                             </a>
                         </div>
                     </div>
-                    <!-- 楼盘项目 -->
-                    <div class="idx-lou-box">
-                        <div class="idx-t">楼盘项目</div>
-                        <div class="idx-l"> </div>
-                        <div class="idx-lou-lists">
-                            <div class="idx-lou-lis bor-1px">
-                                <a href="#" class="clear idx-lou-lis-link">
-                                    <div class="idx-lou-img w-fill-img fl">
-                                        <img src="../assets/image/into_speech.jpg" mode="aspectFill" alt="">
-                                    </div>
-                                    <div class="idx-lou-info fl">
-                                        <div class="idx-lou-it">银龙湾</div>
-                                        <div class="idx-lou-id w-elli">健康海居新亮点 异地养老新选择</div>
-                                        <div class="idx-lou-itb w-table">
-                                            <div class="w-tr idx-lou-tr1">
-                                                <div class="w-td idx-lou-td1">53万m²</div>
-                                                <div class="w-td idx-lou-td2">64742m²</div>
-                                                <div class="w-td idx-lou-td3">48%</div>
-                                            </div>
-                                            <div class="w-tr idx-lou-tr2">
-                                                <div class="w-td idx-lou-td1">建筑面积</div>
-                                                <div class="w-td idx-lou-td2">占地面积</div>
-                                                <div class="w-td idx-lou-td3">绿化</div>
-                                            </div>  
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="idx-lou-lis bor-1px">
-                                <a href="#" class="clear idx-lou-lis-link">
-                                    <div class="idx-lou-img w-fill-img fl">
-                                        <img src="../assets/image/into_speech.jpg" mode="aspectFill" alt="">
-                                    </div>
-                                    <div class="idx-lou-info fl">
-                                        <div class="idx-lou-it">银龙湾</div>
-                                        <div class="idx-lou-id w-elli">健康海居新亮点 异地养老新选择</div>
-                                        <div class="idx-lou-itb w-table">
-                                            <div class="w-tr idx-lou-tr1">
-                                                <div class="w-td idx-lou-td1">53万m²</div>
-                                                <div class="w-td idx-lou-td2">64742m²</div>
-                                                <div class="w-td idx-lou-td3">48%</div>
-                                            </div>
-                                            <div class="w-tr idx-lou-tr2">
-                                                <div class="w-td idx-lou-td1">建筑面积</div>
-                                                <div class="w-td idx-lou-td2">占地面积</div>
-                                                <div class="w-td idx-lou-td3">绿化</div>
-                                            </div>  
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="idx-lou-lis bor-1px">
-                                <a href="#" class="clear idx-lou-lis-link">
-                                    <div class="idx-lou-img w-fill-img fl">
-                                        <img src="../assets/image/into_speech.jpg" mode="aspectFill" alt="">
-                                    </div>
-                                    <div class="idx-lou-info fl">
-                                        <div class="idx-lou-it w-elli">银龙湾银龙湾银龙湾银龙湾银龙湾银龙湾银龙湾银龙湾</div>
-                                        <div class="idx-lou-id w-elli">健康海居新亮点 异地养老新选择健康海居新亮点 异地养老新选择</div>
-                                        <div class="idx-lou-itb w-table">
-                                            <div class="w-tr idx-lou-tr1">
-                                                <div class="w-td idx-lou-td1">53万m²</div>
-                                                <div class="w-td idx-lou-td2">64742m²</div>
-                                                <div class="w-td idx-lou-td3">48%</div>
-                                            </div>
-                                            <div class="w-tr idx-lou-tr2">
-                                                <div class="w-td idx-lou-td1">建筑面积</div>
-                                                <div class="w-td idx-lou-td2">占地面积</div>
-                                                <div class="w-td idx-lou-td3">绿化</div>
-                                            </div>  
-                                        </div>
-                                    </div>
-                                </a>
-                            </div> 
-                        </div>
-                        <div class="idx-more idx-lou-more">
-                            <a href="#">
-                                更多金鼎视频<i></i>
-                            </a>
-                        </div>
-                    </div>
                     <!-- 二维码 -->
                     <div class="idx-qr-box">
                         <div class="idx-qr">
@@ -350,6 +269,7 @@
 </template>
 <script>
 import Vue from 'vue';
+
 export default {
     components: {},
     head:{
@@ -365,9 +285,6 @@ export default {
         // })
     },
     plugins:[
-    ],
-    css:[
-        '~/assets/css/swiper.min.css'
     ]
 }
 
