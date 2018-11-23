@@ -58,11 +58,11 @@ module.exports = {
      */
     axios: {
         // prefix: '/api/',
-        proxy: true
+        // proxy: true
     },
     proxy: {
         // '/api/': { target: 'http://admin.chinakingding.com/' }
-        '/api': 'http://admin.chinakingding.com',
+        // '/api': 'http://admin.chinakingding.com',
     },
     /*
      ** Build configuration

@@ -290,8 +290,8 @@ export default {
 
 </script>
 <style lang="less">
-@import url('../assets/css/style.less');
-@url:'../assets/image/';
+@import url('~assets/css/style.less');
+@url:'~assets/image/';
 .banner{
     height: 100%;
     .swiper-container{
