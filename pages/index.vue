@@ -17,7 +17,7 @@
                     <div class="search-inp-outer flex-con">
                         <div class="search-inp-inner">
                             <form action="" onsubmit="return searchSubmitFn()" id="search-submit">
-                                <input type="search" placeholder="请输入关键词2" id="search-input">
+                                <input type="search" placeholder="请输入关键词" id="search-input">
                                 <input type="hidden">
                             </form>
                             <i id="search-submit"></i>
