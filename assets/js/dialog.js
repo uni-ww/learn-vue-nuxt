@@ -1,6 +1,6 @@
 
 ;
-(function(root, factory) {
+(function (root, factory) {
 	//amd
 	if (typeof define === 'function' && define.amd) {
 		define(['$'], factory);
@@ -9,10 +9,10 @@
 	} else {
 		root.Dialog = factory(window.Zepto || window.jQuery || $);
 	}
-})(this, function($) {
-	$.fn.Dialog = function(settings) {
+})(this, function ($) {
+	$.fn.Dialog = function (settings) {
 		var list = [];
-		$(this).each(function() {
+		$(this).each(function () {
 			var dialog = new Dialog();
 			var options = $.extend({
 				trigger: $(this)
@@ -22,7 +22,7 @@
 		});
 		return list;
 	};
-	$.Dialog = function(settings) {
+	$.Dialog = function (settings) {
 		if (settings.type === "alert") {
 			var alert = new Dialog();
 			var html = '<div class="ui-alert-title">' + settings.content + '</div>';
@@ -44,19 +44,19 @@
 				show: true,
 				mask: true,
 				className: className,
-				afterHide: function(c) {
+				afterHide: function (c) {
 					this.dispose();
 					settings.callback && settings.callback();
 				}
 			}, settings);
 			alert.init(alertOptions);
 			if (settings.timer) {
-				setTimeout(function() {
+				setTimeout(function () {
 					alert.dispose();
 					settings.callback && settings.callback();
 				}, settings.timer);
 			}
-			alert.touch(alert.mask, function() {
+			alert.touch(alert.mask, function () {
 				alert.hide();
 				settings.callback && settings.callback();
 			});
@@ -86,9 +86,9 @@
 				}
 			}
 			action = '<table class="ui-dialog-action"><tr>' + btnstr + '</tr></table>';
-			if(settings.position=="bottom"){
-				html=action+html;
-			}else{
+			if (settings.position == "bottom") {
+				html = action + html;
+			} else {
 				html += action;
 			}
 			var options = $.extend({
@@ -98,17 +98,17 @@
 				fixed: true,
 				mask: true,
 				className: "ui-alert",
-				afterHide: function(c) {
+				afterHide: function (c) {
 					this.dispose();
 				},
-				beforeShow: function(c) {
-					dialog.touch($('.ui-confirm-submit', c), function() {
+				beforeShow: function (c) {
+					dialog.touch($('.ui-confirm-submit', c), function () {
 						settings.callback && settings.callback.call(dialog, 'yes', c);
 					});
-					dialog.touch($('.ui-confirm-no', c), function() {
+					dialog.touch($('.ui-confirm-no', c), function () {
 						settings.callback && settings.callback.call(dialog, 'no', c);
 					});
-					dialog.touch($('.ui-confirm-close', c), function() {
+					dialog.touch($('.ui-confirm-close', c), function () {
 						settings.callback && settings.callback.call(dialog, 'close', c);
 					});
 				}
@@ -117,30 +117,30 @@
 		}
 	};
 	/*alert*/
-	$.alert = function(content, button, callback, timer, settings) {
-			var options = {};
-			var defaults = {
-				zIndex: 100,
-				type: 'alert'
-			};
-			if (typeof content == 'object') {
-				options = $.extend(defaults, content);
-			} else {
-				options = $.extend(defaults, {
-					content: content,
-					button: button,
-					timer: timer,
-					callback: callback,
-					width: 283,
-					height: 'auto'
-				});
-			}
-			$.Dialog($.extend(options, settings));
+	$.alert = function (content, button, callback, timer, settings) {
+		var options = {};
+		var defaults = {
+			zIndex: 100,
+			type: 'alert'
+		};
+		if (typeof content == 'object') {
+			options = $.extend(defaults, content);
+		} else {
+			options = $.extend(defaults, {
+				content: content,
+				button: button,
+				timer: timer,
+				callback: callback,
+				width: 283,
+				height: 'auto'
+			});
 		}
-		/*
-		buttons :[{yes:"确定"},{no:'取消'},{close:'关闭'}]
-		*/
-	$.confirm = function(content, buttons, callback, settings) {
+		$.Dialog($.extend(options, settings));
+	}
+	/*
+	buttons :[{yes:"确定"},{no:'取消'},{close:'关闭'}]
+	*/
+	$.confirm = function (content, buttons, callback, settings) {
 		var options = {};
 		var defaults = {
 			zIndex: 100,
@@ -158,7 +158,7 @@
 		}
 		$.Dialog($.extend(options, settings));
 	}
-	var Dialog = function() {
+	var Dialog = function () {
 		var rnd = Math.random().toString().replace('.', '');
 		this.id = 'dialog_' + rnd;
 		this.settings = {};
@@ -169,7 +169,7 @@
 		this.mask = $();
 	}
 	Dialog.prototype = {
-		init: function(settings) {
+		init: function (settings) {
 			var _this = this;
 			this.settings = $.extend({
 				fixed: false //是否固定位置，
@@ -202,16 +202,16 @@
 				this.show();
 			}
 		},
-		touch: function(obj, fn) {
+		touch: function (obj, fn) {
 			var move;
 			$(obj).on('click', click);
 
 			function click(e) {
 				return fn.call(this, e);
 			}
-			$(obj).on('touchmove', function(e) {
+			$(obj).on('touchmove', function (e) {
 				move = true;
-			}).on('touchend', function(e) {
+			}).on('touchend', function (e) {
 				e.preventDefault();
 				if (!move) {
 					var returnvalue = fn.call(this, e, 'touch');
@@ -223,41 +223,41 @@
 				move = false;
 			});
 		},
-		bindEvent: function() {
+		bindEvent: function () {
 			var _this = this;
 			if (this.settings.trigger) {
-				$(this.settings.trigger).click(function() {
+				$(this.settings.trigger).click(function () {
 					_this.show()
 				});
-				_this.touch($(this.settings.trigger), function() {
+				_this.touch($(this.settings.trigger), function () {
 					_this.show()
 				});
 			};
-			$(this.dialogContainer).on('click', '.js-dialog-close', function() {
-					_this.hide();
-					return false;
-				})
-				// $(window).resize(function() {
-				// 	_this.setPosition();
-				// });
-				// $(window).scroll(function() {
-				// 	_this.setPosition();
-				// })
-			$(document).keydown(function(e) {
+			$(this.dialogContainer).on('click', '.js-dialog-close', function () {
+				_this.hide();
+				return false;
+			})
+			// $(window).resize(function() {
+			// 	_this.setPosition();
+			// });
+			// $(window).scroll(function() {
+			// 	_this.setPosition();
+			// })
+			$(document).keydown(function (e) {
 				if (e.keyCode === 27 && _this.showed) {
 					_this.hide();
 				}
 			});
-			$(this.dialogContainer).on('hide', function() {
+			$(this.dialogContainer).on('hide', function () {
 				_this.hide();
 			})
 		},
-		dispose: function() {
+		dispose: function () {
 			this.dialogContainer.remove();
 			this.mask.remove();
 			this.timer && clearInterval(this.timer);
 		},
-		hide: function() {
+		hide: function () {
 			var _this = this;
 			if (_this.settings.beforeHide) {
 				_this.settings.beforeHide.call(_this, _this.dialogContainer);
@@ -267,7 +267,7 @@
 			this.timer && clearInterval(this.timer);
 			if (this.settings.animate) {
 				this.dialogContainer.removeClass('zoomIn').addClass("zoomOut");
-				setTimeout(function() {
+				setTimeout(function () {
 					_this.dialogContainer.hide();
 					if (typeof _this.settings.target === "object") {
 						$('body').append(_this.dialogContainer.hide());
@@ -286,7 +286,7 @@
 				}
 			}
 		},
-		show: function() {
+		show: function () {
 			if (typeof this.settings.target === "string") {
 				if (/^(\.|\#\w+)/gi.test(this.settings.target)) {
 					this.dailogContent = $(this.settings.target);
@@ -315,7 +315,7 @@
 			// $.alert(this.settings.clientWidth)
 			this.timer && clearInterval(this.timer);
 			if (this.settings.fixed) {
-				this.timer = setInterval(function() {
+				this.timer = setInterval(function () {
 					_this.setPosition();
 				}, 1000);
 			}
@@ -323,7 +323,7 @@
 				this.dialogContainer.addClass('zoomIn').removeClass('zoomOut').addClass('animated');
 			}
 		},
-		setPosition: function() {
+		setPosition: function () {
 			if (this.showed) {
 				var _this = this;
 				this.dialogContainer.show();
@@ -343,21 +343,21 @@
 				var top = clientHeight / 2 - mt;
 				left = Math.floor(Math.max(0, left));
 				top = Math.floor(Math.max(0, top));
-				console.log("ch:"+clientHeight,"cw:"+clientWidth,"left:"+left,"top:"+top,"w:"+this.width,"h:"+this.height);
+				console.log("ch:" + clientHeight, "cw:" + clientWidth, "left:" + left, "top:" + top, "w:" + this.width, "h:" + this.height);
 				var position = 'absolute';
 				if (_this.settings.fixed) {
 					position = 'fixed';
 				}
 				var bottom = "auto";
-				if(_this.settings.position=="bottom"){
-					top="auto";
-					bottom=0;
+				if (_this.settings.position == "bottom") {
+					top = "auto";
+					bottom = 0;
 				}
 				_this.dialogContainer.css({
 					position: position,
 					top: top,
 					left: left,
-					bottom:bottom
+					bottom: bottom
 				});
 			}
 		}
