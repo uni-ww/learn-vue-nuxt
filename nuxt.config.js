@@ -1,5 +1,5 @@
 const pkg = require('./package')
-
+const webpack = require('webpack');
 module.exports = {
     mode: 'universal',
 
@@ -43,31 +43,33 @@ module.exports = {
      ** Plugins to load before mounting the App
      */
     plugins: [
+        '~/plugins/axios'
     ],
 
     /*
      ** Nuxt.js modules
      */
     modules: [
-        // Doc: https://github.com/nuxt-community/axios-module#usage
         '@nuxtjs/axios',
-        // '@nuxtjs/proxy'
     ],
     /*
      ** Axios module configuration
      */
     axios: {
-        // prefix: '/api/',
-        // proxy: true
+        baseURL:'http://admin.chinakingding.com/'
     },
     proxy: {
-        // '/api/': { target: 'http://admin.chinakingding.com/' }
-        // '/api': 'http://admin.chinakingding.com',
     },
     /*
      ** Build configuration
      */
     build: {
-        vendor: ['axios']
+        vendor: ['axios','qs'],
+        extractCSS: { allChunks: true },
+        plugins:[
+            new webpack.ProvidePlugin({
+                '$':'jquery'
+            })
+        ]
     }
 }

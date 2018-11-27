@@ -8,7 +8,7 @@
         <div class="w-aside">
             <div class="w-header w-header3">
                 <div class="w-logo">
-                    <a href="#"><img src="../assets/image/logo1.png" alt="logo"></a>
+                    <a href="#"><img src="/image/logo1.png" alt="logo"></a>
                 </div>
                 <div class="h-close-icon wh-close-more"></div>
             </div>
@@ -85,7 +85,7 @@
 </script>
 <style lang="less">
 @import url('../assets/css/style.less');
-@url: '../assets/image/';
+@url: '~/image/';
 
 body {
     color: @cl-3;
@@ -183,7 +183,7 @@ html,
                         top: 0;
                         width: 1.2rem;
                         height: 1.2rem;
-                        background: url('../assets/image/icon-jiantou-fenlei-r.png') no-repeat center;
+                        background: url('~/image/icon-jiantou-fenlei-r.png') no-repeat center;
                         background-size: .32rem .32rem;
                     }
 
@@ -192,14 +192,14 @@ html,
                         .bgcol(@cl-77);
 
                         &>i {
-                            background: url('../assets/image/icon-jiantou-fenlei-d.png') no-repeat center;
+                            background: url('~/image/icon-jiantou-fenlei-d.png') no-repeat center;
                             background-size: .32rem .32rem;
                         }
                     }
 
                     &.curr1 {
                         &>i {
-                            background: url('../assets/image/icon-jiantou-felei-rw.png') no-repeat center;
+                            background: url('~/image/icon-jiantou-felei-rw.png') no-repeat center;
                             background-size: .32rem .32rem;
                         }
                     }
