@@ -1,25 +1,10 @@
-<<<<<<< HEAD
-# editorconfig.org
 root = true
 
 [*]
-indent_style = space
-indent_size = 4
-=======
-
-root = true
-
-[*]
-indent_size = 4
-indent_style = space
->>>>>>> 4d56628db91254e8ba9df6ed2b7fbc6199ea3be2
-end_of_line = lf
 charset = utf-8
-trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+tab_width = 4
+end_of_line = lf
 insert_final_newline = true
-<<<<<<< HEAD
-
-[*.md]
-trim_trailing_whitespace = false
-=======
->>>>>>> 4d56628db91254e8ba9df6ed2b7fbc6199ea3be2
+trim_trailing_whitespace = true
