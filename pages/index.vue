@@ -1,31 +1,7 @@
 <template>
     <!-- 主体信息 -->
-    <div class="w-section idx-section">
-        <div class="w-header w-header1">
-            <div class="w-logo">
-                <a href="#">
-                    <img src="/image/logo1.png" alt="logo">
-                </a>
-            </div>
-            <div class="h-more-icon2 wh-open-more"></div>
-            <div class="h-search-icon2 js_search"></div>
-        </div>
-        <!-- 搜索 -->
-        <div class="w-search-pop js_search_pop">
-            <div class="js_search_bg w-search-bg"></div>
-            <div class="w-search-box flex-wrap js_search_box">
-                <div class="search-inp-outer flex-con">
-                    <div class="search-inp-inner">
-                        <form action onsubmit="return searchSubmitFn()" id="search-submit">
-                            <input type="search" placeholder="请输入关键词3" id="search-input">
-                            <input type="hidden">
-                        </form>
-                        <i id="search-submit"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="search-cancel js_search_cancel">取消</div>
-        </div>
+    <div>
+        <Header></Header>
         <!-- banner -->
         <div class="banner">
             <div class="swiper-container" id="banner-swiper">
@@ -135,9 +111,9 @@
     </div>
 </template>
 <script>
-import Vue from 'vue'
+import Header from '~/components/header.vue';
 export default {
-    components: {},
+    components: {Header},
     data() {
         return {
             // seo
@@ -245,7 +221,6 @@ export default {
         },
         // 点击切换swiper
         switchSwiper(i) {
-            console.log('in')
             this.bannerSwiper.slideTo(i, 600, true)
         }
     },

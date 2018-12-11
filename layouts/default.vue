@@ -137,9 +137,6 @@ html,
     width: 100%;
     height: 100%;
     overflow: hidden;
-    // overflow-x:hidden;
-    // overflow-y:scroll;
-    // -webkit-overflow-scrolling:touch;
     .bgcol(#fff);
     .transition(left, .4s);
 
@@ -238,7 +235,7 @@ html,
     .hei(.88rem);
     background: url('@{url}icon-zhiding88.png') no-repeat center;
     background-size: cover;
-    // display: none;	
+    // display: none;
 }
 
 </style>

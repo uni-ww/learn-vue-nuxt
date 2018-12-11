@@ -36,7 +36,8 @@ module.exports = {
      */
     css: [
         '~/assets/css/common.less',
-        '~/assets/css/swiper.min.css'
+        '~/assets/css/swiper.min.css',
+        '~/assets/css/animate.css',
     ],
 
     /*
