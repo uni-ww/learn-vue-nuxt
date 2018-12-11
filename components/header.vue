@@ -51,6 +51,7 @@ export default {
         },
         // 搜索
         searchSubmitFn(){
+            console.log(1)
             console.log(this.searchKeyword)
             return false;
         }
